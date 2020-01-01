@@ -2,9 +2,10 @@ const OneSignal = require('onesignal-node');
 
 class OneSignalService {
   static async sendBasicNotification(reminder) {
+    // console.log(reminder);
     const client = new OneSignal.Client(
-      '617fafd7-c41f-4fe7-ad01-5f67db6d2886',
-      'Y2MwOTZhOGEtMjUyMS00Y2QwLWFkMDYtYmY3YmVjNWIxODM2'
+      process.env.ONE_SIGNAL_APP_ID,
+      process.env.ONE_SIGNAL_API_KEY
     );
     const notification = {
       contents: {

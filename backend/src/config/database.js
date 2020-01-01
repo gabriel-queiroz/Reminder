@@ -1,3 +1,3 @@
-const mongoDbUrl = 'mongodb://localhost:27017/reminder';
+const mongoDbUrl = process.env.MONGO_DB_URL;
 
 module.exports = mongoDbUrl;

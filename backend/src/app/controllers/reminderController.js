@@ -7,7 +7,7 @@ class ReminderController {
     let { body: reminder } = req;
     const date = moment(reminder.date);
     if (date.isValid) {
-      reminder = await Reminder.create(date);
+      reminder = await Reminder.create({ date, ...reminder });
       CallReminderJob.jobReminderNotification({
         date,
         reminder,
