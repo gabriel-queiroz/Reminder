@@ -6,6 +6,7 @@ import Routes from '~/routes';
 
 const App = () => {
   useEffect(() => {
+    OneSignal.setEmail('gabrielqueirozzn@gmail.com');
     OneSignal.init('617fafd7-c41f-4fe7-ad01-5f67db6d2886');
     OneSignal.addEventListener('received', receivedPush);
     OneSignal.addEventListener('opened', openedPush);

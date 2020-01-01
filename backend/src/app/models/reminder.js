@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const ReminderSchema = new mongoose.Schema({
+  title: String,
   description: String,
   date: Date,
   createdAt: {
