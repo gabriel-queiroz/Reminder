@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const ReminderSchema = new mongoose.Schema({
   title: String,
@@ -6,8 +6,8 @@ const ReminderSchema = new mongoose.Schema({
   date: Date,
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model("reminder", ReminderSchema);
+module.exports = mongoose.model('reminder', ReminderSchema);

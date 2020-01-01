@@ -1,6 +1,6 @@
-const Reminder = require("../models/reminder");
-const moment = require("moment");
-const CallReminderJob = require("../jobs/callReminder");
+const Reminder = require('../models/reminder');
+const moment = require('moment');
+const CallReminderJob = require('../jobs/callReminder');
 
 class ReminderController {
   static async store(req, res) {
@@ -10,14 +10,15 @@ class ReminderController {
       reminder = await Reminder.create({ ...reminder, date });
       CallReminderJob.jobReminderNotification({
         date,
-        reminder
+        reminder,
       });
       return res.send(date.toDate());
     }
     return res.status(400).send({
-      error: "Date invalid"
+      error: 'Date invalid',
     });
   }
+
   static async index(req, res) {
     const reminders = await Reminder.find({});
     return res.send(reminders);
