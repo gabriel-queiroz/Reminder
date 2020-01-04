@@ -8,7 +8,7 @@ import exceptionHandler from './app/middleware/exceptionHandler';
 import mongoose from 'mongoose';
 import mongoDbUrl from './config/database';
 import sentryConfig from './config/sentry';
-import Sentry from '@sentry/node';
+import * as Sentry from '@sentry/node';
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(routes);
 
-if (process.env.NODE_ENV != 'development') {
+if (process.env.NODE_ENV !== 'development') {
   Sentry.init({ dsn: sentryConfig });
   app.use(Sentry.Handlers.requestHandler());
   app.use(Sentry.Handlers.errorHandler());
