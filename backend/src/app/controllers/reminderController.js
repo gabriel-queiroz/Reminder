@@ -1,6 +1,6 @@
-const Reminder = require('../models/reminder');
-const moment = require('moment');
-const CallReminderJob = require('../jobs/callReminder');
+import Reminder from '../models/reminder';
+import moment from 'moment';
+import CallReminderJob from '../jobs/callReminder';
 
 class ReminderController {
   static async store(req, res) {
@@ -25,4 +25,4 @@ class ReminderController {
   }
 }
 
-module.exports = ReminderController;
+export default ReminderController;

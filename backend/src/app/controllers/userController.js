@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import auth from '../helpers/auth';
 
 class UserController {
-  async store(req, res) {
+  static async store(req, res) {
     try {
       let { body: user } = req;
       const { email } = user;
@@ -19,7 +19,7 @@ class UserController {
     }
   }
 
-  async authenticate(req, res) {
+  static async authenticate(req, res) {
     try {
       const { email, password } = req.body;
       const user = await UserModel.findOne({ email }).select('+password');
@@ -41,4 +41,4 @@ class UserController {
   }
 }
 
-export default new UserController();
+export default UserController;

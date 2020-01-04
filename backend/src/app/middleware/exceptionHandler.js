@@ -1,4 +1,4 @@
-const Youch = require('youch');
+import Youch from 'youch';
 
 const execptionHandler = async (error, req, res, next) => {
   if ((process.env.NODE_ENV = 'development')) {

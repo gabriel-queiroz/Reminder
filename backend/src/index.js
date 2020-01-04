@@ -18,7 +18,7 @@ mongoose.connect(mongoDbUrl, {
   useNewUrlParser: true,
 });
 
-app.use(Sentry.Handlers.requestHandler());
+//app.use(Sentry.Handlers.requestHandler());
 app.use(bodyParser.json());
 app.use(cors());
 app.use(routes);

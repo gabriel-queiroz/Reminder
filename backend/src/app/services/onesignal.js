@@ -1,4 +1,4 @@
-const OneSignal = require('onesignal-node');
+import OneSignal from 'onesignal-node';
 
 class OneSignalService {
   static async sendBasicNotification(reminder) {
@@ -29,4 +29,4 @@ class OneSignalService {
   }
 }
 
-module.exports = OneSignalService;
+export default OneSignalService;

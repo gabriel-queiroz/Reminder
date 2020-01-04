@@ -1,7 +1,7 @@
-const mongoDbConfig = require('../../config/database');
-const OneSignalService = require('../services/onesignal');
-const Agenda = require('agenda');
-const Reminder = require('../models/reminder');
+import mongoDbConfig from '../../config/database';
+import OneSignalService from '../services/onesignal';
+import Agenda from 'agenda';
+import Reminder from '../models/reminder';
 
 class CallReminder {
   static async jobReminderNotification({ date, reminder }) {
@@ -22,4 +22,4 @@ class CallReminder {
   }
 }
 
-module.exports = CallReminder;
+export default CallReminder;
