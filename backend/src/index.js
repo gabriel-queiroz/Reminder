@@ -12,7 +12,7 @@ const Sentry = require('@sentry/node');
 
 const app = express();
 
-Sentry.init({ dsn: sentryConfig });
+// Sentry.init({ dsn: sentryConfig });
 
 mongoose.connect(mongoDbUrl, {
   useNewUrlParser: true,
@@ -22,7 +22,7 @@ app.use(Sentry.Handlers.requestHandler());
 app.use(bodyParser.json());
 app.use(cors());
 app.use(routes);
-app.use(Sentry.Handlers.errorHandler());
-app.use(exceptionHandler);
+// app.use(Sentry.Handlers.errorHandler());
+// app.use(exceptionHandler);
 
 app.listen(3000);
