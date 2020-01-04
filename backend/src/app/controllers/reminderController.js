@@ -12,7 +12,7 @@ class ReminderController {
         date,
         reminder,
       });
-      return res.send(date.toDate());
+      return res.send(reminder);
     }
     return res.status(400).send({
       error: 'Date invalid',

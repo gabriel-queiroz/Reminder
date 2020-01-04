@@ -1,14 +1,14 @@
-require('dotenv/config');
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-require('express-async-errors');
-const routes = require('./app/routes');
-const exceptionHandler = require('./app/middleware/exceptionHandler');
-const mongoose = require('mongoose');
-const mongoDbUrl = require('./config/database');
-const sentryConfig = require('./config/sentry');
-const Sentry = require('@sentry/node');
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import 'express-async-errors';
+import routes from './app/routes';
+import exceptionHandler from './app/middleware/exceptionHandler';
+import mongoose from 'mongoose';
+import mongoDbUrl from './config/database';
+import sentryConfig from './config/sentry';
+import Sentry from '@sentry/node';
 
 const app = express();
 

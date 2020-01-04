@@ -1,9 +1,8 @@
-import OneSignal from 'onesignal-node';
+import { Client } from 'onesignal-node';
 
 class OneSignalService {
   static async sendBasicNotification(reminder) {
-    // console.log(reminder);
-    const client = new OneSignal.Client(
+    const client = new Client(
       process.env.ONE_SIGNAL_APP_ID,
       process.env.ONE_SIGNAL_API_KEY
     );
