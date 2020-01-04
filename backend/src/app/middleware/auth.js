@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import authConfig from '../../config/auth.json';
+import authConfig from '../../config/auth';
 
 const auth = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -15,7 +15,7 @@ const auth = (req, res, next) => {
     res.status(401).send({ error: 'No Token  provided' });
   }
   try {
-    const decoded = jwt.verify(token, authConfig.secret);
+    const decoded = jwt.verify(token, authConfig);
     req.userId = decoded.id;
     return next();
   } catch (error) {
