@@ -1,24 +1,13 @@
-import mongoDbConfig from '../../config/database';
-import OneSignalService from '../services/onesignal';
-import Agenda from 'agenda';
-import Reminder from '../models/reminder';
+import kue from 'kue';
+
+const Queue = kue.createQueue();
 
 class CallReminder {
   static async jobReminderNotification({ date, reminder }) {
-    const agenda = new Agenda({
-      db: { address: mongoDbConfig, collection: 'jobs' },
-    });
-    agenda.define('pushNotification', async job => {
-      const reminder = await Reminder.findById(job.attrs.data.reminderId);
-      OneSignalService.sendBasicNotification(reminder);
-    });
-
-    agenda.on('ready', function() {
-      agenda.schedule(date, 'pushNotification', { reminderId: reminder.id });
-      (async function() {
-        await agenda.start();
-      })();
-    });
+    Queue.createJob('reminder', { reminderId: reminder.id })
+      .attempts()
+      .delay(date.toDate())
+      .save();
   }
 }
 

@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import './app/jobs/work';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
