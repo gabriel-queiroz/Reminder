@@ -23,6 +23,10 @@ class ReminderController {
     const reminders = await Reminder.find({});
     return res.send(reminders);
   }
+
+  static async update(req, res) {
+    return res.send({ message: 'vc vai fazer um update' });
+  }
 }
 
 export default ReminderController;

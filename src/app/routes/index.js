@@ -11,5 +11,6 @@ routes.use(authMiddleware);
 
 routes.get('/reminders', reminderController.index);
 routes.post('/reminders', reminderController.store);
+routes.put('/reminders/:id', reminderController.update);
 
 module.exports = routes;
