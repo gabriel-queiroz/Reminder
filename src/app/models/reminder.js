@@ -8,6 +8,9 @@ const ReminderSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  redisJobId: {
+    type: Number,
+  },
 });
 
 const ReminderModel = mongoose.model('reminder', ReminderSchema);
