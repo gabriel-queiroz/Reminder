@@ -24,7 +24,7 @@ if (process.env.NODE_ENV !== 'development') {
   Sentry.init({ dsn: sentryConfig });
   app.use(Sentry.Handlers.requestHandler());
   app.use(Sentry.Handlers.errorHandler());
-  app.use(exceptionHandler);
 }
+app.use(exceptionHandler);
 
 app.listen(3000);
