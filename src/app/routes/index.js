@@ -4,6 +4,11 @@ import reminderController from '../controllers/reminderController';
 import authMiddleware from '../middleware/auth';
 const routes = new Router();
 
+routes.get('/', (req, res) => {
+  return res.status(400).send({
+    message: 'bemvindo',
+  });
+});
 routes.post('/users', userController.store);
 routes.post('/users/auth', userController.authenticate);
 
