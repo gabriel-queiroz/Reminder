@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(routes);
 
-if (process.env.NODE_ENV !== 'development') {
+if (process.env.NODE_ENV === 'production') {
   Sentry.init({ dsn: sentryConfig });
   app.use(Sentry.Handlers.requestHandler());
   app.use(Sentry.Handlers.errorHandler());
