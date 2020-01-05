@@ -5,9 +5,7 @@ import authMiddleware from '../middleware/auth';
 const routes = new Router();
 
 routes.get('/', (req, res) => {
-  return res.status(400).send({
-    message: 'bemvindo',
-  });
+  throw new Error('aconteceu erro');
 });
 routes.post('/users', userController.store);
 routes.post('/users/auth', userController.authenticate);
